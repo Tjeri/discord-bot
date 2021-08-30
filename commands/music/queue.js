@@ -45,7 +45,7 @@ module.exports = class Play extends Command {
                 message.guild.music.queue.forEach((item, index) => embed.addField(index + 1, `${item.title} ${item.by && `By ${item.by}`}`));
 
                 if (message.guild.music.loop !== null) {
-                    embed.addField('Loop', `${message.guild.music.queue.loop.title}`);
+                    embed.addField('Loop', `${message.guild.music.loop.title}`);
                 }
 
                 return await message.say({ embed });
