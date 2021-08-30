@@ -41,6 +41,7 @@ module.exports = class Play extends Command {
                 const voiceChannel = message.member.voice.channel;
                 message.guild.music.isPlaying = false;
                 message.guild.music.nowPlaying = null;
+                message.guild.music.loop = null;
                 message.guild.music.dispatcher = null;
                 message.guild.music.seek = null;
                 message.guild.music.queue = [];

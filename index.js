@@ -21,6 +21,7 @@ Structures.extend('Guild', Guild => {
             super(client, data);
             this.music = {
                 queue: [],
+                loop: null,
                 isPlaying: false,
                 nowPlaying: null,
                 volume: 1,
@@ -74,6 +75,11 @@ Structures.extend('Guild', Guild => {
 
                 dispatcher.on('finish', async () => {
                     if (queue.length >= 1) {
+                        message.guild.music.seek = null;
+                        return this.play(queue, message);
+                    }
+                    if (message.guild.music.loop !== null) {
+                        queue.push(message.guild.music.loop);
                         message.guild.music.seek = null;
                         return this.play(queue, message);
                     }
