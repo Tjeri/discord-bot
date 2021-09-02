@@ -15,6 +15,25 @@ const logger = winston.createLogger({
     )
 });
 
+const randomStatus = [
+    {
+        type: 'PLAYING',
+        text: 'with Taylors hair'
+    },
+    {
+        type: 'LISTENING',
+        text: 'to Taylor sleeping'
+    },
+    {
+        type: 'WATCHING',
+        text: 'Taylor lovingly'
+    },
+    {
+        type: 'COMPETING',
+        text: 'for Taylors heart'
+    }
+];
+
 Structures.extend('Guild', Guild => {
     class MusicGuild extends Guild {
         constructor(client, data) {
@@ -137,7 +156,12 @@ client.registry
     .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.once('ready', () => {
-    client.user.setActivity(process.env.STATUS || 'amsa7 lak7el', { type: process.env.STATUS_TYPE });
+    if (process.env.STATUS) {
+        client.user.setActivity(process.env.STATUS, { type: process.env.STATUS_TYPE });
+    } else {
+        const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
+        client.user.setActivity(status.text, {type: status.type})
+    }
 });
 
 client.on('debug', msg => logger.log('debug', msg));
