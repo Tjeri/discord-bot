@@ -24,6 +24,7 @@ module.exports = class Play extends Command {
             group: 'music',
             description: 'plays audio from youtube or facebook',
             guildOnly: true,
+            userPermissions: ['ADMINISTRATOR'],
             clientPermissions: ['SPEAK', 'CONNECT'],
             args: [
                 {

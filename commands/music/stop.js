@@ -20,6 +20,7 @@ module.exports = class Play extends Command {
             group: 'music',
             description: 'stops the player and leaves the channel',
             guildOnly: true,
+            userPermissions: ['ADMINISTRATOR'],
             throttling: {
                 usages: 1,
                 duration: 3

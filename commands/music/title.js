@@ -28,6 +28,7 @@ module.exports = class Play extends Command {
                     validate: query => query.length > 0
                 }
             ],
+            userPermissions: ['ADMINISTRATOR'],
             throttling: {
                 usages: 1,
                 duration: 3
