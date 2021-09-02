@@ -22,7 +22,7 @@ const randomStatus = [
     },
     {
         type: 'LISTENING',
-        text: 'to Taylor sleeping'
+        text: 'Taylor sleeping'
     },
     {
         type: 'WATCHING',
@@ -30,7 +30,7 @@ const randomStatus = [
     },
     {
         type: 'COMPETING',
-        text: 'for Taylors heart'
+        text: 'the fight for Taylors heart'
     }
 ];
 
@@ -160,7 +160,7 @@ client.once('ready', () => {
         client.user.setActivity(process.env.STATUS, { type: process.env.STATUS_TYPE });
     } else {
         const status = randomStatus[Math.floor(Math.random() * randomStatus.length)];
-        client.user.setActivity(status.text, {type: status.type})
+        client.user.setActivity(status.text, {type: status.type});
     }
 });
 
