@@ -66,13 +66,11 @@ Structures.extend('Guild', Guild => {
 
                 if (message.guild.music.seek) {
                     switch (message.guild.music.nowPlaying.type) {
-                        case 'youtube': { dispatcher = connection.play(ytdl(message.guild.music.nowPlaying.link, { quality: 'highestaudio' }), { seek: message.guild.music.seek }); break; }
                         case 'facebook': { dispatcher = connection.play(message.guild.music.nowPlaying.link, { seek: message.guild.music.seek }); break; }
                         case 'other': { dispatcher = connection.play(message.guild.music.nowPlaying.link, { seek: message.guild.music.seek }); break; }
                     }
                 } else {
                     switch (queue[0].type) {
-                        case 'youtube': { dispatcher = connection.play(ytdl(queue[0].link, { quality: 'highestaudio' })); break; }
                         case 'facebook': { dispatcher = connection.play(queue[0].link); break; }
                         case 'other': { dispatcher = connection.play(queue[0].link); break; }
                     }
@@ -84,7 +82,6 @@ Structures.extend('Guild', Guild => {
                     dispatcher.setVolume(message.guild.music.volume);
                     if (!message.guild.music.seek) {
                         const embed = new MessageEmbed().setColor('#000099').setTitle(`:arrow_forward: Play`).addField('Now playing', queue[0].title);
-                        if (queue[0].type === 'youtube') embed.setThumbnail(queue[0].thumbnail);
                         if (queue[0].type !== 'other') embed.addField('By', queue[0].by);
                         embed.addField('Duration', queue[0].duration);
                         await message.say({ embed });

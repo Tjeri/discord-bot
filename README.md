@@ -1,5 +1,5 @@
 # Discord Bot
-A bot that plays audio tracks from facebook, youtube and podcast websites
+A bot that plays audio tracks from facebook and podcast websites
 
 # Development
 For development on Windows you need the following node modules installed globally:
@@ -27,10 +27,9 @@ npm install --global --production --vs2015 --add-python-to-path windows-build-to
 1. Connect the app with your forked repository <br></br> ![](/screenshots/heroku-connect-repo.png) <br></br>
 
 1. Add these buildpacks: [Ffmpeg buildpack](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git) and [Puppeteer buildpack](https://github.com/jontewks/puppeteer-heroku-buildpack.git) <br></br> ![](/screenshots/heroku-add-buildpacks.png) <br></br>
-1. Configure the environment variables (YouTube API, Bot Token, Owner Id) <br></br> ![](/screenshots/heroku-environment-variables.png) <br></br>
+1. Configure the environment variables (Bot Token, Owner Id) <br></br> ![](/screenshots/heroku-environment-variables.png) <br></br>
     1. Owner Id is your Discord account id (get it [here](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-))
     1. Bot Token is the token of the bot in your discord application
-    1. YouTube API is the key that enables the bot to get YouTube videos, to get it create a project in [Google Developers Console](http://console.developers.google.com/) then generate the key
 1. Deploy
 1. Get the bot invite link with its permissions
     1. Get the bot permissions <br></br> ![](/screenshots/discord-bot-permissions.png) <br></br>
