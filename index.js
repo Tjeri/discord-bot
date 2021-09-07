@@ -1,8 +1,8 @@
+require('dotenv').config()
 const { CommandoClient } = require('discord.js-commando');
 const { Structures } = require('discord.js');
 const { MessageEmbed } = require('discord.js');
 const winston = require('winston');
-const ytdl = require('ytdl-core');
 const path = require('path');
 
 const logger = winston.createLogger({
